@@ -297,3 +297,15 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em;
 }
+#buttons  {
+	display: flex;
+	justify-content: center;
+	background: #1D6154;
+border: 1px solid #1D6154;
+border-radius: 60px;
+
+
+
+
+
+}
