@@ -15,9 +15,8 @@ form.addEventListener('submit', async (event) => {
       });
       const data = await response.json();
       // Stocke les données de connexion dans le local storage
-      localStorage.setItem('userId', data.userId);
       localStorage.setItem('token', data.token);
-      // Redirige vers la page de profil de l'utilisateur
+      
       window.location.href = '../index.html';
     } catch (error) {
       console.error(error);
