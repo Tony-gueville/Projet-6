@@ -1,20 +1,18 @@
 const worksDiv = document.querySelector(".gallery");
-
-// Récupérer les données depuis l'API
 let categories = [];
 let works = [];
 
 fetch("http://localhost:5678/api/categories")
-  .then(response => response.json())
-  .then(data => {
+  .then((response) => response.json())
+  .then((data) => {
     categories = data;
     updateWorksDisplay();
     createCategoryButtons();
   });
 
 fetch("http://localhost:5678/api/works")
-  .then(response => response.json())
-  .then(data => {
+  .then((response) => response.json())
+  .then((data) => {
     works = data;
     updateWorksDisplay();
   });
@@ -25,7 +23,9 @@ function updateWorksDisplay(categoryId = null) {
   worksDiv.innerHTML = "";
 
   // Parcourir le tableau "works" pour récupérer les travaux correspondant à la catégorie sélectionnée
-  const filteredWorks = categoryId ? works.filter(work => work.categoryId === categoryId) : works;
+  const filteredWorks = categoryId
+    ? works.filter((work) => work.categoryId === categoryId)
+    : works;
 
   // Créer un élément d'image pour chaque travail correspondant et l'ajouter à la div "works"
   for (const work of filteredWorks) {
@@ -92,69 +92,94 @@ function setActiveButton(activeButton) {
   }
 }
 // Récupération des éléments à afficher/masquer
-const editBar = document.querySelector('.edit-bar');
-const editIntroduction = document.querySelector('.edit-introduction');
-const R = document.querySelector('.R');
-const loginListItem = document.querySelector('nav ul li:nth-child(3)');
+const editBar = document.querySelector(".edit-bar");
+const editIntroduction = document.querySelector(".edit-introduction");
+const R = document.querySelector(".R");
+const loginListItem = document.querySelector("nav ul li:nth-child(3)");
 
-const loginLink = loginListItem.querySelector('a');
+const loginLink = loginListItem.querySelector("a");
 
 // Vérification de la présence du jeton dans le localStorage
-const token = localStorage.getItem('token');
+const token = localStorage.getItem("token");
 
 if (token) {
   // Si le jeton est présent, afficher les éléments
-  editBar.style.display = 'flex';
-  editIntroduction.style.display = 'block';
-  R.style.display = 'block';
-  loginLink.textContent = 'Log out';
-  
-
+  editBar.style.display = "flex";
+  editIntroduction.style.display = "block";
+  R.style.display = "block";
+  loginLink.textContent = "Log out";
 } else {
   // Sinon, masquer les éléments
-  editBar.style.display = 'none';
-  editIntroduction.style.display = 'none';
-  R.style.display = 'none';
-  loginLink.textContent = 'Login';
-  
-  
+  editBar.style.display = "none";
+  editIntroduction.style.display = "none";
+  R.style.display = "none";
+  loginLink.textContent = "Login";
 }
 
-loginLink.addEventListener('click', () => {
+loginLink.addEventListener("click", () => {
   // Suppression du jeton du localStorage
-  localStorage.removeItem('token');
+  localStorage.removeItem("token");
 
   // Rechargement de la page principale
-  location.href = './index.html';
+  location.href = "./index.html";
 });
 
-
+// -------------modal--------------
 
 // Récupération des éléments HTML pertinents
-const modalOverlay = document.querySelector('.modal-overlay');
-const modal = document.querySelector('.modal');
-const closeButton = document.querySelector('.modal-close');
+const modalOverlay = document.querySelector(".modal-overlay");
+const modal = document.querySelector(".modal");
+const closeButton = document.querySelector(".close");
 
-const openButton = document.querySelector('.R');
+const openButton = document.querySelector(".R");
+
+const addImg = document.getElementById('add-img');
+const elementHide = document.querySelector('.modal-images');
+// const elementShow = document.querySelector('#');
+
+addImg.addEventListener('click',  ()=>{
+  elementHide.style.display = 'none';
+});
 
 // Fonction pour afficher la modale
 function showModal() {
-  modalOverlay.classList.remove('hidden');
+  modalOverlay.classList.remove("hidden");
+
+  const modalImagesDiv = document.querySelector(".modal-images");
+
+  modalImagesDiv.innerHTML = ""; // Réinitialise le contenu de la div "modal-images"
+
+  // Parcourir les images de la div "gallery" et les cloner dans la div "modal-images" avec un figcaption
+  const galleryImages = document.querySelectorAll(".gallery img");
+  for (const image of galleryImages) {
+    const container = document.createElement("div");
+    container.classList.add("image-container");
+
+    const clonedImage = image.cloneNode(true);
+    container.appendChild(clonedImage);
+
+    const figcaption = document.createElement("figcaption");
+    figcaption.textContent = "Éditer";
+    container.appendChild(figcaption);
+
+    modalImagesDiv.appendChild(container);
+  }
 }
 
 // Fonction pour cacher la modale
 function hideModal() {
-  modalOverlay.classList.add('hidden');
+  elementHide.style.display = 'flex';
+  modalOverlay.classList.add("hidden");
 }
 
 // Écouteur d'événement pour ouvrir la modale lorsque l'utilisateur clique sur le bouton d'ouverture
-openButton.addEventListener('click', showModal);
+openButton.addEventListener("click", showModal);
 
 // Écouteur d'événement pour fermer la modale lorsque l'utilisateur clique sur le bouton de fermeture
-closeButton.addEventListener('click', hideModal);
+closeButton.addEventListener("click", hideModal);
 
 // Écouteur d'événement pour fermer la modale lorsque l'utilisateur clique en dehors de la modale
-modalOverlay.addEventListener('click', function(event) {
+modalOverlay.addEventListener("click", function (event) {
   if (event.target === modalOverlay) {
     hideModal();
   }

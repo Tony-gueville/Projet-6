@@ -84,12 +84,12 @@ time,
 mark,
 audio,
 video {
-	font: inherit;
-	font-size: 100%;
-	vertical-align: baseline;
-	padding: 0;
-	margin: 0;
-	border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -104,311 +104,379 @@ hgroup,
 menu,
 nav,
 section {
-	display: block;
+  display: block;
 }
 
 body {
-	line-height: 1;
+  line-height: 1;
 }
 
 ol,
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 blockquote,
 q {
-	quotes: none;
+  quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: '';
-	content: none;
+  content: "";
+  content: none;
 }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /** end reset css**/
 body {
-	max-width: 1400px;
-	background-color: #FFFEF8;
-	font-family: 'Work Sans';
-	font-size: 14px;
-	margin: auto;
+  max-width: 1400px;
+  background-color: #fffef8;
+  font-family: "Work Sans";
+  font-size: 14px;
+  margin: auto;
 }
 
 header {
-	display: flex;
-	max-width: 1140px;
-	justify-content: space-between;
-	margin: 50px auto;
+  display: flex;
+  max-width: 1140px;
+  justify-content: space-between;
+  margin: 50px auto;
 }
 
 main {
-	max-width: 1140px;
-	margin: auto;
+  max-width: 1140px;
+  margin: auto;
 }
 
 section {
-	margin: 50px 0;
+  margin: 50px 0;
 }
 
 h1 {
-	display: flex;
-	flex-direction: column;
-	font-family: 'Syne', sans-serif;
-	font-weight: 800;
-	font-size: 22px;
-	color: #B1663C;
+  display: flex;
+  flex-direction: column;
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  color: #b1663c;
 }
 
-h1>span {
-	font-family: 'Work Sans';
-	font-size: 10px;
-	letter-spacing: 0.1em;
+h1 > span {
+  font-family: "Work Sans";
+  font-size: 10px;
+  letter-spacing: 0.1em;
 }
 
 h2 {
-	font-family: 'Syne';
-	font-weight: 700;
-	font-size: 30px;
-	color: #1D6154;
+  font-family: "Syne";
+  font-weight: 700;
+  font-size: 30px;
+  color: #1d6154;
 }
 
 nav ul {
-	display: flex;
-	align-items: center;
-	list-style-type: none;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
 }
 
 nav li {
-	padding: 0 10px;
-	font-size: 1.2em;
+  padding: 0 10px;
+  font-size: 1.2em;
 }
 
 li:hover {
-	color: #B1663C;
+  color: #b1663c;
 }
 
 #introduction {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 #introduction figure {
-	flex: 1;
+  flex: 1;
 }
 
 #introduction img {
-	display: block;
-	margin: auto;
-	width: 80%;
+  display: block;
+  margin: auto;
+  width: 80%;
 }
 
 #introduction article {
-	flex: 1;
+  flex: 1;
 }
 
 #introduction h2 {
-	margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 #introduction p {
-	margin-bottom: 0.5em;
+  margin-bottom: 0.5em;
 }
 
-
 .gallery {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 20px;
-	grid-row-gap: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
 }
 
 .gallery img {
-	width: 100%;
-
+  width: 100%;
 }
 
 #contact {
-	width: 50%;
-	margin: auto;
+  width: 50%;
+  margin: auto;
 }
 
-#contact>* {
-	text-align: center;
+#contact > * {
+  text-align: center;
 }
 
 #contact h2 {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #contact form {
-	display: flex;
-	flex-direction: column;
-	text-align: left;
-	margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 30px;
 }
 
 #contact input {
-	height: 50px;
-	font-size: 1.2em;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-	border: none;
+  height: 50px;
+  font-size: 1.2em;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  border: none;
 }
 
 #contact label {
-	margin: 2em 0 1em 0;
+  margin: 2em 0 1em 0;
 }
 
 #contact textarea {
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
 input[type="submit"] {
-	width: 180px;
-	font-weight: 700;
-	font-family: 'Syne';
-	text-align: center;
-	margin: 2em auto;
-	border-radius: 60px;
-	background-color: #1D6154;
-	color: white;
+  width: 180px;
+  font-weight: 700;
+  font-family: "Syne";
+  text-align: center;
+  margin: 2em auto;
+  border-radius: 60px;
+  background-color: #1d6154;
+  color: white;
 }
 
 footer {
-	background-color: #fff;
+  background-color: #fff;
 }
 
 footer nav ul {
-	display: flex;
-	justify-content: flex-end;
-	margin: 2em;
+  display: flex;
+  justify-content: flex-end;
+  margin: 2em;
 }
 
 .category-button {
-	
-	justify-content: center;
-	color: #1D6154;
-	background-color: white;
-	border: 1px solid #1D6154;
-	border-radius: 60px;
-	width: 100px;
-	margin: 10px;
-  }
-  #buttons {
-	padding-bottom: 50px;
-	display: flex;
-	justify-content: center;
-  }
-
-  .category-button-active {
-	background-color: #1D6154;
-	color: white;
-  }
-  
-  /* Styles pour la barre */
-  .edit-bar {
-	background-color: black;
-	color: white;
-	height: 50px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
-	display: none;
-  }
-    
-  /* Styles pour les boutons */
-  .edit-button {
-	background-color: white;
-	color: black;
-	border: none;
-	padding: 8px 20px;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 60px;
-  }
-  
-.icon-edit{
-	color: white;
+  justify-content: center;
+  color: #1d6154;
+  background-color: white;
+  border: 1px solid #1d6154;
+  border-radius: 60px;
+  width: 100px;
+  margin: 10px;
+}
+#buttons {
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
 }
 
-  .edit-introduction{
-	margin-left: 55px;
-	display: block;
-	padding-top: 12px;
-	display: none;
-  }
-  .edit-projets{
-display: flex;
-justify-content: center;
-align-items: center;
-margin-bottom: 3em;
-gap: 15px;
+.category-button-active {
+  background-color: #1d6154;
+  color: white;
+}
 
+/* Styles pour la barre */
+.edit-bar {
+  background-color: black;
+  color: white;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  display: none;
+}
 
-  }
-  .R{
-	display: none;
-  }
+/* Styles pour les boutons */
+.edit-button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 8px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 60px;
+}
 
-  /* Style pour la modale */
+.icon-edit {
+  color: white;
+}
+
+.edit-introduction {
+  margin-left: 55px;
+  display: block;
+  padding-top: 12px;
+  display: none;
+}
+.edit-projets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3em;
+  gap: 15px;
+}
+.R {
+  display: none;
+}
+
+/* Style pour la modale */
 .modal {
-	background-color: white;
-	width: 30%;
-	padding: 20px;
-	border-radius: 5px;
-	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	
-  }
-  
-  /* Style pour l'overlay */
-  .modal-overlay {
-	background-color: rgba(0, 0, 0, 0.5);
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 9999;
-	
-  }
-  
-  
-  /* Style pour le bouton de fermeture */
-  .modal-close {
-	background-color: transparent;
+  background-color: white;
+  height: 731px;
+  width: 701px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Style pour l'overlay */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+/* Style pour le bouton de fermeture */
+.modal-close {
+  background-color: transparent;
+  border: none;
+  color: #444;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Style pour le titre de la modale */
+.modal h2 {
+  font-size: 24px;
+  margin-top: 0;
+}
+
+/* Style pour cacher la modale */
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal-images {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 105px;
+  margin-right: 105px;
+  padding-top: 45px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #b3b3b3;
+}
+.image-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.modal-images img {
+  width: 78.12px;
+  height: 104.08px;
+}
+
+.button-container {
+	display: flex;
+	justify-content: center;
+}
+#add-img{
+	width: 180px;
+	font-weight: 700;
 	border: none;
-	color: #444;
-	cursor: pointer;
-	font-size: 16px;
-	margin-top: 10px;
+	height: 30px;
+	margin: 2em auto;
+	border-radius: 60px;
+	background-color: #1d6154;
+	color: white;
+  height: 36px;
 	
+}
+#deleteImage{
+  color: #D65353;
+  font-family: 'Syne';
+  font-size: 14px;
+  border: none;
+  background-color: white;
+}
+
+.delete-container {
+	display: flex;
+	justify-content: center;
+}
+.modal-close{
+  display: flex;
+  justify-content: end;
+  margin-right: 15px;
+}
+.close{
+  cursor: pointer;
+}
+.title-modal, .title-modal2{
+  display: flex;
+  justify-content: center;
+}
+.title-modal h2, .title-modal2 h2{
+  color: #000000;
+  font-family: Work Sans;
+  font-size: 26px;
+font-weight: 400;
+line-height: 30px;
+letter-spacing: 0em;
+padding-top: 30px;
+
+}
+
+.title-modal h2 {
+  /* display: none; */
+}
+.title-modal2 h2 {
+  display: none;
   }
-  
-  /* Style pour le titre de la modale */
-  .modal h2 {
-	font-size: 24px;
-	margin-top: 0;
-  }
-  
-  /* Style pour cacher la modale */
-  .modal-overlay.hidden {
-	display: none;
-  }
-  

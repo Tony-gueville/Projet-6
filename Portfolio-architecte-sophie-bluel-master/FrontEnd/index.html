@@ -7,12 +7,18 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link  href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
-      rel="stylesheet"/>
-     
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
       integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <link rel="stylesheet" href="./assets/style.css" />
 
@@ -20,8 +26,8 @@
   </head>
 
   <body>
-     <!-- Barre d'édition -->
-     <div class="edit-bar">
+    <!-- Barre d'édition -->
+    <div class="edit-bar">
       <div class="edit-text">
         <i class="fa-sharp fa-regular fa-pen-to-square icon-edit"></i>
         <span>Mode édition</span>
@@ -30,7 +36,9 @@
     </div>
 
     <header>
-     <a href="./index.html"> <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1></a>
+      <a href="./index.html">
+        <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1></a
+      >
       <nav>
         <ul>
           <li>projets</li>
@@ -45,7 +53,10 @@
       <section id="introduction">
         <figure>
           <img src="./assets/images/sophie-bluel.png" alt="" />
-          <div class="edit-introduction"><i class="fa-sharp fa-regular fa-pen-to-square icon-edit2"></i> modifier</div>
+          <div class="edit-introduction">
+            <i class="fa-sharp fa-regular fa-pen-to-square icon-edit2"></i>
+            modifier
+          </div>
         </figure>
         <article>
           <h2>Designer d'espace</h2>
@@ -65,14 +76,17 @@
             : architecte DPLG, décorateur(trice)
           </p>
         </article>
-        
       </section>
 
       <section id="portfolio">
         <div class="edit-projets">
-        <h2>Mes Projets</h2> <div class="R"><i class="fa-sharp fa-regular fa-pen-to-square icon-edit2"></i> modifier </div>
+          <h2>Mes Projets</h2>
+          <div class="R">
+            <i class="fa-sharp fa-regular fa-pen-to-square icon-edit2"></i>
+            modifier
+          </div>
         </div>
-      
+
         <div id="buttons"></div>
 
         <div class="gallery"></div>
@@ -102,12 +116,19 @@
     </footer>
     <div class="modal-overlay hidden">
       <div class="modal">
-        <h2>Titre de la modale</h2>
-        <p>Contenu de la modale</p>
-        <button class="modal-close">Fermer</button>
+      <div class="modal-close"><i class="fa-solid fa-xmark close"></i></div>
+        <div class="title-modal"><h2>Galerie photos</h2></div>
+        <div class="title-modal2"><h2>wfgfgwdfgwfdg</h2></div>
+        <div class="modal-images"></div>
+        <div class="button-container">
+          <button id="add-img">Ajouter une photo</button>
+        </div>
+        <div class="delete-container">
+          <button id="deleteImage" type="reset">Supprimer la galerie</button>
+        </div>
       </div>
     </div>
-    
+
     <script src="./index.js"></script>
   </body>
 </html>
