@@ -20,7 +20,6 @@ document
         }
       })
       .then((data) => {
-        var token = data.token;
         localStorage.setItem("token", data.token);
         window.location.href = "../index.html";
         // console.log(data.token)

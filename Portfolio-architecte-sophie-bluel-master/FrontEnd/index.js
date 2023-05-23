@@ -130,25 +130,35 @@ loginLink.addEventListener("click", () => {
 const modalOverlay = document.querySelector(".modal-overlay");
 const modal = document.querySelector(".modal");
 const closeButton = document.querySelector(".close");
+const closeButton2 = document.querySelector(".close2");
 
 const openButton = document.querySelector(".R");
 
 const addImg = document.getElementById('add-img');
 const elementHide = document.querySelector('.modal-images');
+const modalShow = document.querySelector('.testclose');
+const inputModal = document.querySelector('.modal-content');
+const modalclose2 = document.querySelector('.modal-close2');
+const iconeRetour = document.getElementById('icone-retour');
 // const elementShow = document.querySelector('#');
+iconeRetour.addEventListener('click', function() {
+  hideModal(); // Exécute hideModal() en premier
+  showModal(); // Exécute showModal() ensuite
+});
 
 addImg.addEventListener('click',  ()=>{
   elementHide.style.display = 'none';
+  modalShow.style.display = 'none';
+  inputModal.style.display ='block';
+  modalclose2.style.display ='flex';
 });
 
 // Fonction pour afficher la modale
 function showModal() {
   modalOverlay.classList.remove("hidden");
 
-  const modalImagesDiv = document.querySelector(".modal-images");
-
-  modalImagesDiv.innerHTML = ""; // Réinitialise le contenu de la div "modal-images"
-
+  elementHide.innerHTML = ""; // Réinitialise le contenu de la div "modal-images"
+  
   // Parcourir les images de la div "gallery" et les cloner dans la div "modal-images" avec un figcaption
   const galleryImages = document.querySelectorAll(".gallery img");
   for (const image of galleryImages) {
@@ -162,14 +172,23 @@ function showModal() {
     figcaption.textContent = "Éditer";
     container.appendChild(figcaption);
 
-    modalImagesDiv.appendChild(container);
+    elementHide.appendChild(container);
   }
 }
 
 // Fonction pour cacher la modale
 function hideModal() {
   elementHide.style.display = 'flex';
+  modalShow.style.display ='block';
+  inputModal.style.display ='none';
+  modalclose2.style.display ='none';
   modalOverlay.classList.add("hidden");
+  
+  // Supprimer l'élément de l'image du conteneur
+  const imageElement = imageContainer.querySelector('img');
+  if (imageElement) {
+    imageElement.remove();
+  }
 }
 
 // Écouteur d'événement pour ouvrir la modale lorsque l'utilisateur clique sur le bouton d'ouverture
@@ -177,11 +196,33 @@ openButton.addEventListener("click", showModal);
 
 // Écouteur d'événement pour fermer la modale lorsque l'utilisateur clique sur le bouton de fermeture
 closeButton.addEventListener("click", hideModal);
-
+closeButton2.addEventListener("click", hideModal);
 // Écouteur d'événement pour fermer la modale lorsque l'utilisateur clique en dehors de la modale
 modalOverlay.addEventListener("click", function (event) {
   if (event.target === modalOverlay) {
     hideModal();
   }
 });
+document.getElementById("photo-button").addEventListener("click", function() {
+  document.getElementById("photo-input").click();
+});
 
+const photoInput = document.getElementById('photo-input');
+const imageContainer = document.getElementById('image-container');
+
+photoInput.addEventListener('change', function(event) {
+  const file = event.target.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      const imageUrl = e.target.result;
+      const imageElement = document.createElement('img');
+      imageElement.src = imageUrl;
+      imageContainer.appendChild(imageElement);
+    };
+
+    reader.readAsDataURL(file);
+  }
+});

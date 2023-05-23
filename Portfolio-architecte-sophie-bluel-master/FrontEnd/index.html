@@ -116,9 +116,9 @@
     </footer>
     <div class="modal-overlay hidden">
       <div class="modal">
+        <div class="testclose">
       <div class="modal-close"><i class="fa-solid fa-xmark close"></i></div>
         <div class="title-modal"><h2>Galerie photos</h2></div>
-        <div class="title-modal2"><h2>wfgfgwdfgwfdg</h2></div>
         <div class="modal-images"></div>
         <div class="button-container">
           <button id="add-img">Ajouter une photo</button>
@@ -126,7 +126,47 @@
         <div class="delete-container">
           <button id="deleteImage" type="reset">Supprimer la galerie</button>
         </div>
-      </div>
+        </div>
+
+        
+          <div class="modal-close2"><i id="icone-retour" class="fa-solid fa-arrow-left"></i><i class="fa-solid fa-xmark close2"></i></div>
+          <div class="modal-content">
+          <div class="modal-title">Ajout photo</div>
+          <div id="image-container">
+          <div class="container-input"> 
+            
+
+            <i class="fa-sharp fa-regular fa-image"></i>
+            
+            <button id="photo-button">Ajouter une photo</button>
+            <input id="photo-input" type="file"size="4194304" accept="image/*">
+
+           
+          <span>jpg, png : 4mo max</span></div>
+        </div>
+          <div class="modal-table">
+            <tr>
+              <td colspan="2"><p for="titre">Titre :</p></td>
+            </tr>
+            <tr>
+              <td colspan="2"><input type="text" id="titre"></td>
+            </tr>
+            <tr>
+              <td colspan="2"><p for="categorie">Catégorie :</p></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <select id="categorie">
+                  <option value="categorie1">Catégorie 1</option>
+                  <option value="categorie2">Catégorie 2</option>
+                  <option value="categorie3">Catégorie 3</option>
+                </select>
+              </td>
+            </tr>
+          </div>
+          <button class="modal-button">Valider</button>
+        </div>
+        
     </div>
 
     <script src="./index.js"></script>

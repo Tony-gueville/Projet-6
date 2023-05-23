@@ -474,9 +474,133 @@ padding-top: 30px;
 
 }
 
-.title-modal h2 {
-  /* display: none; */
+
+/* ------- */
+
+.modal-content {
+display: none;
+  flex-wrap: wrap;
+  margin-left: 105px;
+  margin-right: 105px;
+  text-align: center; /* Centre les éléments */
+  
 }
-.title-modal2 h2 {
+
+.modal-title {
+  padding-bottom: 45px;
+  text-align: center;
+  font-size: 24px;
+ 
+}
+.container-input{
+  background: #E8F1F7;
+  border-radius: 3px;
+    margin-bottom: 10px;
+  height: 200px;
+}
+.modal-input {
+ display: flex;
+ margin-left: auto;
+  margin-right: auto;
+}
+.label-file {
+  cursor: pointer;
+  color: #00b1ca;
+  font-weight: bold;
+}
+.modal-input {
   display: none;
+}
+#photo-input{
+  display: none;
+}
+#photo-button{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  background: #CBD6DC;
+  border-radius: 50px;
+  border: none;
+  width: 173px;
+height: 36px;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+color:#306685;
+
+;
+}
+
+.modal-table {
+  width: 100%;
+  text-align: left; /* Aligne le texte à gauche */
+  border-bottom: 1px solid #b3b3b3;
+  padding-bottom: 50px
+}
+.modal-table, p {
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+
+.modal-table input[type="text"],
+.modal-table select {
+  width: 100%;
+  
+}
+
+.modal-button {
+  display: block;
+  margin: 20px auto;
+border: none;
+width: 237px;
+height: 36px;
+background: #A7A7A7;
+border-radius: 60px;
+color: white;
+margin-top: 50px;
+}
+.modal-close2{
+  display: none;
+  justify-content: space-between;
+    background-color: transparent;
+    border: none;
+    color: #444;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    margin: 30px;
   }
+  .fa-image{
+    display: flex;
+    justify-content: center;
+    font-size: 75px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #titre, #categorie{
+    border: none;
+   
+   height: 51px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  }
+  .container-input span {
+    display: inline-block;
+    padding-top: 5px;
+  }
+
+  #image-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  #image-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    object-fit: cover;
+    width: 35%;
+  }
+  
