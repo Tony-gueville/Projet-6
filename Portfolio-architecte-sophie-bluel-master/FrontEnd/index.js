@@ -140,7 +140,7 @@ const modalShow = document.querySelector('.testclose');
 const inputModal = document.querySelector('.modal-content');
 const modalclose2 = document.querySelector('.modal-close2');
 const iconeRetour = document.getElementById('icone-retour');
-// const elementShow = document.querySelector('#');
+
 iconeRetour.addEventListener('click', function() {
   hideModal(); // Exécute hideModal() en premier
   showModal(); // Exécute showModal() ensuite
@@ -161,17 +161,30 @@ function showModal() {
   
   // Parcourir les images de la div "gallery" et les cloner dans la div "modal-images" avec un figcaption
   const galleryImages = document.querySelectorAll(".gallery img");
-  for (const image of galleryImages) {
+  
+  for (let i = 0; i < galleryImages.length; i++) {
+    const image = galleryImages[i];
     const container = document.createElement("div");
     container.classList.add("image-container");
-
+  
     const clonedImage = image.cloneNode(true);
     container.appendChild(clonedImage);
-
+  
     const figcaption = document.createElement("figcaption");
     figcaption.textContent = "Éditer";
     container.appendChild(figcaption);
-
+  
+    const trashIcon = document.createElement("i");
+    trashIcon.classList.add("fa-solid", "fa-trash-can", "delete-icon");
+    container.appendChild(trashIcon);
+  
+    // Ajouter une deuxième icône uniquement à la première image
+    if (i === 0) {
+      const secondIcon = document.createElement("i");
+      secondIcon.classList.add("fa-solid", "fa-arrows-up-down-left-right", "second-icon");
+      container.appendChild(secondIcon);
+    }
+  
     elementHide.appendChild(container);
   }
 }
@@ -226,3 +239,19 @@ photoInput.addEventListener('change', function(event) {
     reader.readAsDataURL(file);
   }
 });
+
+
+  // ---------
+  
+  const galleryImages = document.querySelectorAll(".gallery img");
+  for (const image of galleryImages) {
+  
+  
+    const icon = document.createElement("i");
+    icon.classList.add("fas", "fa-trash"); // Remplacez "fa-trash" par la classe CSS de votre icône de poubelle
+  
+    container.appendChild(icon);
+  
+    elementHide.appendChild(container);
+  }
+  

@@ -603,4 +603,26 @@ margin-top: 50px;
     object-fit: cover;
     width: 35%;
   }
+  .delete-icon {
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 55px;
+    color:white;
+    background: #000000;
+    border-radius: 2px;
+    font-size: 11px;
+    padding: 4px;
+    cursor: pointer;
+  }
+  .second-icon{
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 32px;
+    color:white;
+    background: #000000;
+    border-radius: 2px;
+    font-size: 11px;
+    padding: 4px;
+    cursor: pointer;
+  }
   
