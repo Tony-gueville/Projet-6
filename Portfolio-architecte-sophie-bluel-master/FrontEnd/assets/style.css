@@ -149,6 +149,9 @@ header {
   justify-content: space-between;
   margin: 50px auto;
 }
+header a {
+	text-decoration: none;
+}
 
 main {
   max-width: 1140px;
@@ -185,11 +188,17 @@ nav ul {
   display: flex;
   align-items: center;
   list-style-type: none;
+  
 }
 
 nav li {
+  
   padding: 0 10px;
   font-size: 1.2em;
+}
+nav li a {
+  text-decoration: none;
+  color: inherit;
 }
 
 li:hover {
@@ -232,7 +241,9 @@ li:hover {
 }
 
 .gallery img {
-  width: 100%;
+ 
+  height: 480px;
+  width: 360px
 }
 
 #contact {
@@ -356,6 +367,7 @@ footer nav ul {
 }
 .R {
   display: none;
+  cursor: pointer;
 }
 
 /* Style pour la modale */
@@ -387,9 +399,11 @@ footer nav ul {
   background-color: transparent;
   border: none;
   color: #444;
-  cursor: pointer;
   font-size: 16px;
   margin-top: 10px;
+}
+#icone-retour, .fa-xmark{
+  cursor: pointer;;
 }
 
 /* Style pour le titre de la modale */
@@ -437,6 +451,7 @@ footer nav ul {
 	background-color: #1d6154;
 	color: white;
   height: 36px;
+  cursor: pointer;
 	
 }
 #deleteImage{
@@ -445,6 +460,7 @@ footer nav ul {
   font-size: 14px;
   border: none;
   background-color: white;
+  cursor: pointer;
 }
 
 .delete-container {
@@ -547,6 +563,10 @@ color:#306685;
   width: 100%;
   
 }
+.modal-table p {
+  color: #3D3D3D;
+  padding-bottom: 10px;
+}
 
 .modal-button {
   display: block;
@@ -557,7 +577,8 @@ height: 36px;
 background: #A7A7A7;
 border-radius: 60px;
 color: white;
-margin-top: 50px;
+margin-top: 30px;
+cursor: pointer;
 }
 .modal-close2{
   display: none;
@@ -565,7 +586,7 @@ margin-top: 50px;
     background-color: transparent;
     border: none;
     color: #444;
-    cursor: pointer;
+    
     font-size: 18px;
     margin-top: 10px;
     margin: 30px;
@@ -574,8 +595,8 @@ margin-top: 50px;
     display: flex;
     justify-content: center;
     font-size: 75px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 25px;
+    padding-bottom: 15px;
   }
 
   #titre, #categorie{
@@ -586,7 +607,8 @@ margin-top: 50px;
   }
   .container-input span {
     display: inline-block;
-    padding-top: 5px;
+    color: #444444;
+    margin-top: 10px;
   }
 
   #image-container {
@@ -624,5 +646,21 @@ margin-top: 50px;
     font-size: 11px;
     padding: 4px;
     cursor: pointer;
+  }
+  
+  @keyframes wizz {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .wizz-animation {
+    animation: wizz 0.5s infinite;
   }
   

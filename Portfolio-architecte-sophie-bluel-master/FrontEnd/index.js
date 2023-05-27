@@ -16,6 +16,7 @@ fetch("http://localhost:5678/api/works")
     works = data;
     updateWorksDisplay();
   });
+  
 
 // Mettre à jour l'affichage des travaux en fonction de la catégorie sélectionnée
 function updateWorksDisplay(categoryId = null) {
@@ -32,6 +33,8 @@ function updateWorksDisplay(categoryId = null) {
     const img = document.createElement("img");
     img.src = work.imageUrl;
     img.alt = work.title;
+    img.id = work.id;
+    // console.log(img);
 
     // Créer un élément de légende pour le titre et l'ajouter à la div "works"
     const caption = document.createElement("figcaption");
@@ -101,9 +104,11 @@ const loginLink = loginListItem.querySelector("a");
 
 // Vérification de la présence du jeton dans le localStorage
 const token = localStorage.getItem("token");
+const boutonfiltre = document.getElementById("buttons");
 
 if (token) {
   // Si le jeton est présent, afficher les éléments
+  boutonfiltre.style.display = "none";
   editBar.style.display = "flex";
   editIntroduction.style.display = "block";
   R.style.display = "block";
@@ -161,12 +166,12 @@ function showModal() {
   
   // Parcourir les images de la div "gallery" et les cloner dans la div "modal-images" avec un figcaption
   const galleryImages = document.querySelectorAll(".gallery img");
-  
+ 
   for (let i = 0; i < galleryImages.length; i++) {
     const image = galleryImages[i];
+    
     const container = document.createElement("div");
     container.classList.add("image-container");
-  
     const clonedImage = image.cloneNode(true);
     container.appendChild(clonedImage);
   
@@ -175,6 +180,8 @@ function showModal() {
     container.appendChild(figcaption);
   
     const trashIcon = document.createElement("i");
+
+    trashIcon.setAttribute("ImageID",image.getAttribute("id") );
     trashIcon.classList.add("fa-solid", "fa-trash-can", "delete-icon");
     container.appendChild(trashIcon);
   
@@ -186,8 +193,65 @@ function showModal() {
     }
   
     elementHide.appendChild(container);
-  }
+    trashIcon.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
+      const imageId = trashIcon.getAttribute("ImageID");
+      
+      fetch(`http://localhost:5678/api/works/${imageId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Suppression réussie, effectuez ici les actions nécessaires (rafraîchissement de la galerie, etc.)
+          console.log("Image supprimée avec succès");
+        } else {
+          // Gestion des erreurs en cas d'échec de la suppression
+          console.error("Erreur lors de la suppression de l'image");
+        }
+      })
+      .catch(error => {
+        // Gestion des erreurs de la requête
+        console.error("Erreur de la requête de suppression", error);
+      });
+    }); 
+  }  
 }
+const deleteButton = document.getElementById("deleteImage");
+deleteButton.addEventListener("click",event => {
+  event.preventDefault();
+  event.stopPropagation();
+  const imageContainers = document.querySelectorAll(".image-container");
+  
+  imageContainers.forEach(container => {
+    const trashIcon = container.querySelector(".delete-icon");
+    const imageId = trashIcon.getAttribute("ImageID");
+     
+    fetch(`http://localhost:5678/api/works/${imageId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        // container.remove();
+        console.log("Image supprimée avec succès");
+      } else {
+        console.error("Erreur lors de la suppression de l'image");
+      }
+    })
+    .catch(error => {
+      console.error("Erreur de la requête de suppression", error);
+    });
+  });
+});
+
+
+
 
 // Fonction pour cacher la modale
 function hideModal() {
@@ -242,16 +306,63 @@ photoInput.addEventListener('change', function(event) {
 
 
   // ---------
+
+
+  const titreInput = document.getElementById('titre');
+  const categorieSelect = document.getElementById('categorie');
+  const photoInputes = document.getElementById('photo-input');
+  const validerButton = document.querySelector('.modal-button');
   
-  const galleryImages = document.querySelectorAll(".gallery img");
-  for (const image of galleryImages) {
+  validerButton.addEventListener('click', () => {
+    const categoryId = categorieSelect.value;
+    const file = photoInputes.files[0];
   
+    // Vérifier la taille du fichier
+    if (file && file.size > 4194304) {
+      console.error('La taille de l\'image dépasse la limite de 4 Mo');
   
-    const icon = document.createElement("i");
-    icon.classList.add("fas", "fa-trash"); // Remplacez "fa-trash" par la classe CSS de votre icône de poubelle
+      // Colorer en rouge le span
+      const spanElement = document.querySelector('#photo-input ~ span');
+      if (spanElement) {
+        spanElement.style.background = 'red';
   
-    container.appendChild(icon);
+        // Ajouter l'animation de wizz
+        spanElement.classList.add('wizz-animation');
   
-    elementHide.appendChild(container);
-  }
+        // Rétablir la couleur et supprimer l'animation après 5 secondes
+        setTimeout(() => {
+          spanElement.style.background = ''; // Utilise une chaîne vide pour rétablir la couleur par défaut
+          spanElement.classList.remove('wizz-animation');
+        }, 2000);
+  
+        // Supprimer l'image en prévisualisation
+        const imageElement = imageContainer.querySelector('img');
+        if (imageElement) {
+          imageElement.remove();
+        }
+      }
+  
+      return;
+    }
+  
+    const formData = new FormData();
+    formData.append('image', file);
+    formData.append('title', titreInput.value);
+    formData.append('category', categoryId);
+  
+    fetch('http://localhost:5678/api/works', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Traiter la réponse de l'API ici
+      })
+      .catch(error => {
+        console.error('Une erreur s\'est produite:', error);
+      });
+  });
   

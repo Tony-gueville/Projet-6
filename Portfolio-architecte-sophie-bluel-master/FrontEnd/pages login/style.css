@@ -244,5 +244,18 @@ input[type="submit"] {
 .forgot-password {
 	margin-top: 10px;
 	text-align: center;
+	
+		text-decoration: none;
+		color: inherit;
+	  
 }
 
+
+
+nav li a, .forgot-password a{
+	text-decoration: none;
+	color: inherit;
+  }
+header a {
+	text-decoration: none;
+}
